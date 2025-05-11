@@ -1,0 +1,181 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formspree Submissions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+</head>
+<body class="bg-white text-gray-900 font-sans">
+  <header class="flex items-center justify-between border-b border-gray-200 px-6 h-16">
+    <div class="flex items-center space-x-2">
+      <svg
+        class="w-8 h-8 text-red-600"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M3 6h12v3H3zM3 11h18v3H3zM3 17h12v3H3z" />
+      </svg>
+      <span class="font-extrabold text-lg select-none">Formspree</span>
+    </div>
+    <div class="flex items-center space-x-4 flex-1 max-w-lg mx-6">
+      <button
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-gray-700 text-sm text-ellipsis whitespace-nowrap overflow-hidden focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
+        type="button"
+      >
+        ronan54644@inkight.com ronan54644@inkight.com
+      </button>
+      <svg
+        class="w-4 h-4 text-gray-500 -ml-6 pointer-events-none"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+    <nav class="flex items-center space-x-8 text-red-600 font-semibold text-sm select-none">
+      <a href="#" class="hover:underline">Forms</a>
+      <a href="#" class="hover:underline">Account</a>
+      <button aria-label="Notifications" class="relative focus:outline-none">
+        <i class="fas fa-bell fa-lg"></i>
+      </button>
+      <button aria-label="Logout" class="focus:outline-none">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"
+          />
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main class="flex h-[calc(100vh-64px)]">
+    <aside class="w-72 border-r border-gray-200 flex flex-col px-4 py-6">
+      <button
+        type="button"
+        class="flex items-center justify-center border border-gray-300 rounded-md py-2 mb-6 text-gray-700 font-semibold text-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-600"
+      >
+        <svg
+          class="w-5 h-5 mr-2 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+        </svg>
+        Add New
+      </button>
+      <nav class="flex flex-col space-y-1 text-xs text-gray-500 font-semibold select-none">
+        <span class="uppercase">My First Project</span>
+        <button
+          type="button"
+          class="text-gray-900 font-semibold text-sm rounded-md bg-gray-100 px-3 py-2 text-left focus:outline-none"
+        >
+          A New Form
+        </button>
+      </nav>
+    </aside>
+
+    <section class="flex-1 flex flex-col p-6 overflow-y-auto">
+      <h1 class="text-xl font-bold mb-4 select-none">A New Form</h1>
+      <nav class="flex space-x-6 border-b border-gray-200 mb-4 text-sm select-none">
+        <button class="text-gray-600 hover:text-gray-900 py-2 focus:outline-none">Integration</button>
+        <button class="text-gray-900 border-b-2 border-red-600 font-semibold py-2 focus:outline-none">
+          Submissions
+        </button>
+        <button class="text-gray-600 hover:text-gray-900 py-2 focus:outline-none">Settings</button>
+        <button class="text-gray-600 hover:text-gray-900 py-2 focus:outline-none">Workflow</button>
+        <button class="text-gray-600 hover:text-gray-900 py-2 focus:outline-none">Rules</button>
+      </nav>
+
+      <form class="flex mb-6" role="search" aria-label="Search submissions">
+        <label for="search" class="sr-only">Search submissions</label>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search submissions..."
+          class="flex-1 border border-gray-200 rounded-l-md px-4 py-2 text-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
+        />
+        <button
+          type="submit"
+          class="bg-gray-100 border border-gray-200 rounded-r-md px-4 font-semibold text-gray-600 text-sm hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
+        >
+          Search
+        </button>
+      </form>
+
+      <div class="bg-white border border-gray-100 rounded-md shadow-sm flex flex-col overflow-x-auto">
+        <div class="flex items-center px-4 py-2 border-b border-gray-100 text-xs text-gray-600 select-none">
+          <button
+            type="button"
+            class="bg-gray-100 text-gray-700 rounded px-2 py-0.5 font-semibold mr-4"
+            aria-pressed="true"
+          >
+            Inbox
+          </button>
+          <span>Spam (0)</span>
+          <button
+            type="button"
+            class="ml-auto text-red-600 font-semibold text-sm focus:outline-none"
+          >
+            Settings
+          </button>
+        </div>
+        <table class="w-full text-xs text-gray-500">
+          <thead class="border-b border-gray-100">
+            <tr>
+              <th class="w-6 p-3">
+                <input type="checkbox" aria-label="Select all submissions" />
+              </th>
+              <th class="text-center py-3 px-2">_date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="3" class="py-20 text-center text-gray-700 select-none">
+                You haven't submitted this form yet.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <button
+    aria-label="Chat support"
+    class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-red-600 shadow-lg flex items-center justify-center text-white text-2xl font-bold focus:outline-none"
+  >
+    <svg
+      class="w-7 h-7"
+      fill="white"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M12 3C7.03 3 3 6.58 3 11c0 1.93.99 3.68 2.7 4.97L5 21l5.3-2.7c.7.1 1.4.17 2.1.17 4.97 0 9-3.58 9-8s-4.03-8-9-8z" />
+    </svg>
+  </button>
+</body>
+</html>

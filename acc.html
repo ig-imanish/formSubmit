@@ -1,0 +1,202 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Formspree Account
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom scrollbar for the right content area */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 8px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background-color: #d1d5db;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+  </style>
+ </head>
+ <body class="bg-white font-sans text-gray-900">
+  <header class="flex items-center justify-between border-b border-gray-200 px-6 h-16">
+   <div class="flex items-center space-x-3">
+    <img alt="Formspree red logo icon letter F" class="w-6 h-6" height="24" src="https://storage.googleapis.com/a1aa/image/d6d0f8ee-b793-4f37-2509-2d1c82049f27.jpg" width="24"/>
+    <span class="font-extrabold text-lg select-none">
+     Formspree
+    </span>
+    <div class="ml-4 relative">
+     <button aria-expanded="false" aria-haspopup="listbox" class="border border-gray-300 rounded-md px-3 py-1 text-sm text-gray-700 flex items-center space-x-1 focus:outline-none focus:ring-2 focus:ring-red-600" id="emailDropdownBtn">
+      <span>
+       ronan54644@inkight.com ronan54644@inkight.com
+      </span>
+      <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+       <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round">
+       </path>
+      </svg>
+     </button>
+     <!-- Dropdown not functional, just visual -->
+    </div>
+   </div>
+   <nav class="flex items-center space-x-8 text-red-600 font-semibold text-sm select-none">
+    <a class="hover:underline" href="#">
+     Forms
+    </a>
+    <a class="hover:underline" href="#">
+     Account
+    </a>
+    <button aria-label="Notifications" class="relative hover:text-red-700 focus:outline-none">
+     <i class="fas fa-bell fa-lg">
+     </i>
+    </button>
+    <button aria-label="Logout" class="hover:text-red-700 focus:outline-none">
+     <svg class="h-6 w-6 stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17 16l4-4m0 0l-4-4m4 4H7">
+      </path>
+      <path d="M7 16v1a2 2 0 002 2h6a2 2 0 002-2v-1">
+      </path>
+      <path d="M7 8V7a2 2 0 012-2h6a2 2 0 012 2v1">
+      </path>
+     </svg>
+    </button>
+   </nav>
+  </header>
+  <main class="flex h-[calc(100vh-64px)]">
+   <aside class="w-64 border-r border-gray-200 bg-gray-50 flex flex-col select-none">
+    <nav class="flex flex-col mt-6 space-y-2 px-4">
+     <a class="flex items-center space-x-3 px-3 py-2 rounded border-l-4 border-red-600 bg-white text-gray-900 font-semibold" href="#">
+      <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+       <path d="M12 8v4l3 3">
+       </path>
+       <circle cx="12" cy="12" r="10">
+       </circle>
+      </svg>
+      <span>
+       Account
+      </span>
+     </a>
+     <a class="flex items-center space-x-3 px-3 py-2 rounded text-gray-700 hover:bg-gray-100" href="#">
+      <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+       <path d="M17 20h5v-2a3 3 0 00-5.356-1.857">
+       </path>
+       <path d="M9 20H4v-2a3 3 0 015.356-1.857">
+       </path>
+       <circle cx="12" cy="7" r="4">
+       </circle>
+      </svg>
+      <span>
+       Team
+      </span>
+     </a>
+     <a class="flex items-center space-x-3 px-3 py-2 rounded text-gray-700 hover:bg-gray-100" href="#">
+      <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+       <rect height="13" rx="2" ry="2" width="18" x="3" y="7">
+       </rect>
+       <path d="M16 3h-8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z">
+       </path>
+      </svg>
+      <span>
+       Billing
+      </span>
+     </a>
+     <a class="flex items-center space-x-3 px-3 py-2 rounded text-gray-700 hover:bg-gray-100" href="#">
+      <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+       <path d="M21 10h-6a4 4 0 00-8 0H3">
+       </path>
+       <circle cx="12" cy="10" r="3">
+       </circle>
+       <path d="M12 21v-4">
+       </path>
+      </svg>
+      <span>
+       Domains
+      </span>
+     </a>
+    </nav>
+   </aside>
+   <section aria-label="Account content" class="flex-1 overflow-y-auto scrollbar-thin p-6 space-y-6 bg-white">
+    <div class="bg-white border border-gray-100 rounded-lg p-6 max-w-4xl w-full shadow-sm">
+     <p class="text-xs font-semibold text-gray-400 uppercase mb-3">
+      Usage
+     </p>
+     <h2 class="font-semibold text-gray-900 mb-1 text-base">
+      Monthly Submissions
+     </h2>
+     <div class="flex items-center space-x-2 mb-2">
+      <span class="font-semibold text-xl text-gray-900">
+       0
+      </span>
+      <span class="text-gray-400 text-sm">
+       / 50
+      </span>
+     </div>
+     <div class="w-full bg-gray-200 rounded-full h-2.5">
+      <div class="bg-gray-300 h-2.5 rounded-full" style="width: 0%">
+      </div>
+     </div>
+     <p class="text-xs text-gray-400 mt-1">
+      0% of monthly submissions quota used
+     </p>
+    </div>
+    <div class="bg-white border border-gray-100 rounded-lg p-6 max-w-4xl w-full shadow-sm">
+     <div class="flex justify-between items-center mb-4">
+      <p class="text-xs font-semibold text-gray-400 uppercase">
+       Linked Emails
+      </p>
+      <button class="text-red-600 font-semibold text-sm hover:underline focus:outline-none" type="button">
+       + Add Email
+      </button>
+     </div>
+     <table class="w-full text-sm text-left text-gray-900 border-collapse border border-gray-100">
+      <thead class="text-gray-400 uppercase text-xs border-b border-gray-100">
+       <tr>
+        <th class="py-2 px-3 border-r border-gray-100">
+         Address
+        </th>
+        <th class="py-2 px-3 border-r border-gray-100">
+         Status
+        </th>
+        <th class="py-2 px-3">
+         Actions
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr class="border-b border-gray-100">
+        <td class="py-3 px-3">
+         ronan54644@inkight.com
+        </td>
+        <td class="py-3 px-3">
+         <span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded select-none">
+          Verified
+         </span>
+        </td>
+        <td class="py-3 px-3">
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <p class="mt-4 text-sm text-gray-900">
+      1 of 2 email addresses added.
+      <span class="font-semibold text-red-600">
+       Upgrade
+      </span>
+      to add unlimited addresses.
+     </p>
+    </div>
+   </section>
+  </main>
+  <button aria-label="Chat support" class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-red-600 shadow-lg flex items-center justify-center text-white text-2xl hover:bg-red-700 focus:outline-none">
+   <svg class="w-7 h-7" fill="white" stroke="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 6.5a2.5 2.5 0 00-2.5-2.5h-13A2.5 2.5 0 003 6.5v11A2.5 2.5 0 005.5 20H19l3 3V6.5z">
+    </path>
+   </svg>
+  </button>
+ </body>
+</html>

@@ -1,0 +1,100 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Formspree Create Form Modal
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-gray-100 font-sans">
+  <div class="min-h-screen flex flex-col">
+   <!-- Header -->
+   <header class="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-300">
+    <div class="flex items-center space-x-2">
+     <img alt="Formspree logo icon, red square with white F letter" class="w-6 h-6" height="24" src="https://storage.googleapis.com/a1aa/image/3a34c2ac-7066-4070-0035-cc3c1dd10de3.jpg" width="24"/>
+     <span class="font-extrabold text-gray-900 text-lg select-none">
+      Formspree
+     </span>
+    </div>
+    <div class="flex items-center space-x-6 text-sm font-semibold text-red-700">
+     <button class="hover:underline">
+      Forms
+     </button>
+     <button class="hover:underline">
+      Account
+     </button>
+     <button aria-label="Notifications" class="relative">
+      <i class="fas fa-bell text-red-700 text-lg">
+      </i>
+      <span class="absolute -top-1 -right-2 bg-red-700 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+       5
+      </span>
+     </button>
+     <button aria-label="Logout">
+      <i class="fas fa-sign-out-alt text-red-700 text-lg">
+      </i>
+     </button>
+    </div>
+   </header>
+   <!-- Main content container -->
+   <main class="flex-grow flex justify-center items-center p-6">
+    <!-- Modal -->
+    <div aria-labelledby="modal-title" aria-modal="true" class="bg-white rounded-xl shadow-lg max-w-md w-full p-6 relative" role="dialog">
+     <!-- Close button top right -->
+     <button aria-label="Close modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" type="button">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+       <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round">
+       </path>
+      </svg>
+     </button>
+     <h2 class="font-bold text-gray-900 text-lg mb-4" id="modal-title">
+      Create Form
+     </h2>
+     <form class="space-y-5">
+      <div>
+       <label class="block text-gray-900 font-semibold mb-1" for="formName">
+        Form Name:
+       </label>
+       <input class="w-full rounded-md border border-gray-300 px-4 py-2 text-gray-900 text-base focus:outline-none focus:ring-2 focus:ring-red-600" id="formName" type="text" value="A New Form"/>
+      </div>
+      <div>
+       <label class="block text-gray-900 font-semibold mb-1" for="project">
+        Project:
+       </label>
+       <select class="w-full rounded-md border border-gray-300 bg-gray-100 px-4 py-2 text-gray-900 text-base cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-600" disabled="" id="project">
+        <option>
+         My First Project
+        </option>
+       </select>
+      </div>
+      <div>
+       <label class="block text-gray-900 font-semibold mb-1" for="sendEmails">
+        Send emails to:
+       </label>
+       <select class="w-full rounded-md border border-gray-300 bg-gray-100 px-4 py-2 text-gray-900 text-base cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-600" disabled="" id="sendEmails">
+        <option>
+         ronan54644@inkight.com
+        </option>
+       </select>
+      </div>
+      <p class="text-gray-900 text-sm">
+       To send to a new email address, please first add it to Linked Emails on the
+       <a class="text-red-600 font-semibold hover:underline" href="#">
+        account
+       </a>
+       page.
+      </p>
+      <div class="flex justify-end">
+       <button class="bg-red-600 text-white font-bold px-5 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600" type="submit">
+        Create Form
+       </button>
+      </div>
+     </form>
+    </div>
+   </main>
+  </div>
+ </body>
+</html>
