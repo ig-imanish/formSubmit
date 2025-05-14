@@ -11,56 +11,52 @@
  </head>
  <body class="bg-[#f6fbfa] font-sans text-sm text-gray-700">
   <header class="flex items-center justify-between px-6 py-3 bg-white border-b border-gray-200">
-   <div class="flex items-center space-x-2">
-    <img alt="Formspree logo with red letter F stacked bars" class="w-8 h-8" height="32" src="https://storage.googleapis.com/a1aa/image/69f6ebe3-4c57-4cf0-241b-626f12343ad3.jpg" width="32"/>
-    <span class="font-extrabold text-base select-none">
-     Formspree
-    </span>
+   <div class="flex items-center">
+     <img src="https://storage.googleapis.com/a1aa/image/49ef72b6-ea43-481f-d94f-9d69d9f0e4ad.jpg" alt="Logo" class="h-8 w-8 mr-2">
+     <h1 class="text-lg font-bold text-gray-800">FormSubmit</h1>
    </div>
-   <div class="flex items-center space-x-2 border border-gray-300 rounded-md bg-white px-3 py-1 text-xs text-gray-600 cursor-pointer select-none max-w-[280px] truncate">
-    jjrc8yo04n@illubd.com jjrc8yo04n@illubd.com
-    <i class="fas fa-caret-down ml-1 text-gray-400">
-    </i>
+   <div class="flex items-center space-x-4">
+     <button class="text-gray-600 hover:text-gray-800">
+       <i class="fas fa-cog"></i>
+     </button>
+     <button class="text-gray-600 hover:text-gray-800">
+       <i class="fas fa-bell"></i>
+     </button>
+     <button class="flex items-center space-x-2 text-gray-600 hover:text-gray-800">
+       <span>User</span>
+       <i class="fas fa-user-circle text-lg"></i>
+     </button>
    </div>
-   <nav class="flex items-center space-x-8 text-red-600 font-semibold text-sm select-none">
-    <a class="hover:underline" href="#">
-     Forms
-    </a>
-    <a class="hover:underline" href="#">
-     Account
-    </a>
-    <button aria-label="Notifications" class="hover:text-red-700">
-     <i class="fas fa-bell text-lg">
-     </i>
-    </button>
-    <button aria-label="Logout" class="hover:text-red-700">
-     <i class="fas fa-sign-out-alt text-lg">
-     </i>
-    </button>
-   </nav>
   </header>
   <main class="flex h-[calc(100vh-56px)]">
    <aside class="w-64 bg-white border-r border-gray-200 p-4 flex flex-col space-y-4">
-    <button class="flex items-center justify-center space-x-2 border border-gray-300 rounded-md py-2 text-gray-700 font-semibold hover:bg-gray-50" type="button">
-     <i class="fas fa-plus text-base">
-     </i>
-     <span>
-      Add New
-     </span>
-    </button>
-    <div class="text-xs text-gray-500 font-semibold select-none">
-     MY FIRST PROJECT
+    <div class="relative">
+      <button id="newButton" class="w-full flex items-center justify-center space-x-2 border border-gray-300 rounded-md py-2 text-gray-700 font-semibold hover:bg-gray-50" type="button">
+       <i class="fas fa-plus text-base"></i>
+       <span>Add New</span>
+       <i class="fas fa-caret-down ml-1 text-gray-400"></i>
+      </button>
+      <!-- Dropdown menu for "Add New" button -->
+      <div id="newDropdown" class="hidden absolute top-full left-0 mt-1 w-full bg-white shadow-lg rounded-md border border-gray-200 z-10">
+        <button id="newFormBtn" class="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center">
+          <i class="fas fa-file-alt mr-2 text-red-600"></i>
+          New Form
+        </button>
+        <button id="newProjectBtn" class="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center">
+          <i class="fas fa-folder mr-2 text-red-600"></i>
+          New Project
+        </button>
+      </div>
     </div>
-    <div class="border border-dashed border-gray-300 rounded-md p-4 text-center text-gray-600 text-xs cursor-pointer select-none hover:bg-gray-50">
-     Click
-     <span class="inline-flex items-center justify-center bg-red-600 text-white rounded-full w-5 h-5 text-xs font-bold mx-1">
-      +
-     </span>
-     to create a form.
+
+    <!-- Projects and forms will be loaded here -->
+    <div id="projectsContainer" class="space-y-6">
+      <!-- Projects will be populated from the backend -->
     </div>
+    
    </aside>
    <section class="flex-1 p-8">
-    <div class="relative bg-white rounded-md p-10 flex flex-col items-center justify-center text-center max-w-3xl mx-auto" style="min-height: 280px;">
+    <div id="welcomeScreen" class="relative bg-white rounded-md p-10 flex flex-col items-center justify-center text-center max-w-3xl mx-auto" style="min-height: 280px;">
      <img alt="Large red Formspree logo with stacked bars" class="mb-4" height="64" src="https://storage.googleapis.com/a1aa/image/49ef72b6-ea43-481f-d94f-9d69d9f0e4ad.jpg" width="64"/>
      <h1 class="text-3xl font-extrabold text-gray-900 mb-2 select-none">
       Welcome
@@ -70,7 +66,536 @@
      </p>
      <img alt="Light red abstract shapes background behind welcome content" class="absolute inset-0 -z-10 opacity-10 rounded-md" height="160" src="https://storage.googleapis.com/a1aa/image/d8e4e473-eb07-4a7c-49d0-fa981faa56b4.jpg" width="320"/>
     </div>
+    
+    <!-- Form details view (hidden by default) -->
+    <div id="formDetailsView" class="hidden">
+
+
+        <main class="flex-1 overflow-y-auto p-6 bg-gray-50" style="scrollbar-width: thin; scrollbar-color: #d1d5db transparent">
+    <h1 class="text-xl font-bold mb-4 select-none">
+     A New Form
+    </h1>
+    <nav class="flex space-x-6 text-sm font-medium mb-6 select-none">
+     <button aria-current="page" class="border-b-2 border-red-600 pb-1 text-gray-900">
+      Integration
+     </button>
+     <button class="text-gray-500 hover:text-gray-700">
+      Submissions
+     </button>
+     <button class="text-gray-500 hover:text-gray-700">
+      Settings
+     </button>
+     <button class="text-gray-500 hover:text-gray-700">
+      Workflow
+     </button>
+     <button class="text-gray-500 hover:text-gray-700">
+      Rules
+     </button>
+    </nav>
+    <section class="bg-white rounded-lg p-6 mb-6 border border-gray-100 max-w-4xl">
+     <h2 class="text-xs font-semibold text-gray-500 uppercase mb-3 select-none">
+      FORM ENDPOINT
+     </h2>
+     <div class="flex items-center space-x-4">
+      <input class="flex-1 bg-gray-100 text-gray-700 text-xs font-mono rounded-md py-2 px-3 border border-gray-200 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600" readonly="" type="text" value="https://formspree.io/f/mblokbqr"/>
+      <button class="border border-gray-900 text-gray-900 font-semibold text-sm rounded-md py-2 px-4 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-900" type="button">
+       Copy
+      </button>
+     </div>
+     <p class="text-xs text-gray-500 mt-3 max-w-xl leading-relaxed">
+      Place this URL in the form's
+      <code class="bg-gray-100 border border-gray-300 rounded px-1 text-xs font-mono">
+       action
+      </code>
+      attribute, set the method to
+      <code class="bg-gray-100 border border-gray-300 rounded px-1 text-xs font-mono">
+       POST
+      </code>
+      , and add a
+      <code class="bg-gray-100 border border-gray-300 rounded px-1 text-xs font-mono">
+       name
+      </code>
+      attribute to each input.
+     </p>
+    </section>
+    <section class="bg-white rounded-lg p-6 border border-gray-100 max-w-4xl">
+     <h2 class="text-xs font-semibold text-gray-500 uppercase mb-3 select-none">
+      CODE EXAMPLES
+     </h2>
+     <div class="bg-[#15232e] rounded-md p-4 overflow-x-auto text-white font-mono text-xs" style="min-width: 320px">
+      <nav class="flex space-x-4 mb-4 select-none">
+       <button aria-current="page" class="bg-[#1f2d3d] rounded-md px-3 py-1 font-semibold">
+        HTML
+       </button>
+       <button class="hover:underline">
+        AJAX
+       </button>
+       <button class="hover:underline">
+        React
+       </button>
+       <button class="hover:underline">
+        HTML with file uploads
+       </button>
+       <button class="hover:underline">
+        Formbutton
+       </button>
+      </nav>
+      <pre class="whitespace-pre-wrap">
+&lt;!-- modify this form HTML and place wherever you want your form --&gt;
+&lt;form
+  action="https://formspree.io/f/mblokbqr"
+  method="POST"
+&gt;
+  &lt;input type="email" name="email" /&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;
+          </pre>
+     </div>
+    </section>
+   </main>
+      <div class="bg-white rounded-md p-8 max-w-3xl mx-auto">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-bold text-gray-900" id="formDetailTitle">Form Title</h2>
+          <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md">
+            View Submissions
+          </button>
+        </div>
+        <div class="border rounded-md p-4 bg-gray-50">
+          <h3 class="font-medium mb-2">Embed this form in your HTML</h3>
+          <pre class="bg-gray-800 text-gray-100 p-3 rounded-md text-sm overflow-x-auto"><code id="formCode">&lt;form action="https://api.formsubmit.io/send/your-form-id" method="POST"&gt;
+  &lt;input type="text" name="name"&gt;
+  &lt;input type="email" name="email"&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;</code></pre>
+        </div>
+      </div>
+    </div>
    </section>
   </main>
+
+  <!-- Modal for creating a new form -->
+  <div id="newFormModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl font-bold text-gray-900">Create a new form</h3>
+        <button class="modal-close text-gray-400 hover:text-gray-600">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="newFormForm">
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="formName">Form name</label>
+          <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-red-500 focus:border-red-500" id="formName" placeholder="Contact form" required type="text">
+        </div>
+        <div class="mb-6" id="projectSelectContainer">
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="projectSelect">Project</label>
+          <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-red-500 focus:border-red-500" id="projectSelect">
+            <!-- Projects will be populated here -->
+          </select>
+        </div>
+        <div class="flex justify-end space-x-3">
+          <button class="modal-close px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 border border-gray-300 rounded-md" type="button">Cancel</button>
+          <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md" type="submit">
+            <span id="createFormBtnText">Create form</span>
+            <span id="createFormLoading" class="hidden">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for creating a new project -->
+  <div id="newProjectModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl font-bold text-gray-900">Create a new project</h3>
+        <button class="modal-close text-gray-400 hover:text-gray-600">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="newProjectForm">
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="projectName">Project name</label>
+          <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-red-500 focus:border-red-500" id="projectName" placeholder="My New Project" required type="text">
+        </div>
+        <div class="flex justify-end space-x-3">
+          <button class="modal-close px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 border border-gray-300 rounded-md" type="button">Cancel</button>
+          <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md" type="submit">
+            <span id="createProjectBtnText">Create project</span>
+            <span id="createProjectLoading" class="hidden">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Loading indicator -->
+  <div id="loadingIndicator" class="fixed inset-0 bg-white bg-opacity-75 flex items-center justify-center z-50 hidden">
+    <div class="text-center">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
+      <p class="mt-2 text-gray-700">Loading...</p>
+    </div>
+  </div>
+
+  <script>
+  // Store user data in memory for client-side manipulation
+  let userData = {
+    projects: [
+      {
+        id: "project-1",
+        name: "MY FIRST PROJECT",
+        forms: [
+          { 
+            id: "form-1", 
+            name: "Contact Form",
+            createdAt: "2023-05-10T14:20:00Z",
+            submissions: 12
+          },
+          { 
+            id: "form-2", 
+            name: "Feedback Form",
+            createdAt: "2023-05-12T09:15:00Z",
+            submissions: 5
+          }
+        ]
+      },
+      {
+        id: "project-2",
+        name: "MY SECOND PROJECT",
+        forms: [
+          { 
+            id: "form-3", 
+            name: "Newsletter Signup",
+            createdAt: "2023-05-15T16:45:00Z",
+            submissions: 28
+          }
+        ]
+      }
+    ]
+  };
+
+  // DOM Elements
+  const newButton = document.getElementById('newButton');
+  const newDropdown = document.getElementById('newDropdown');
+  const newFormBtn = document.getElementById('newFormBtn');
+  const newProjectBtn = document.getElementById('newProjectBtn');
+  const newFormModal = document.getElementById('newFormModal');
+  const newProjectModal = document.getElementById('newProjectModal');
+  const modalCloseButtons = document.querySelectorAll('.modal-close');
+  const projectSelectContainer = document.getElementById('projectSelectContainer');
+  const projectsContainer = document.getElementById('projectsContainer');
+  const loadingIndicator = document.getElementById('loadingIndicator');
+  const welcomeScreen = document.getElementById('welcomeScreen');
+  const formDetailsView = document.getElementById('formDetailsView');
+  
+  let activeProjectId = null;
+  let creatingFromProjectButton = false;
+
+  // Show loading indicator
+  function showLoading() {
+    loadingIndicator.classList.remove('hidden');
+  }
+
+  // Hide loading indicator
+  function hideLoading() {
+    loadingIndicator.classList.add('hidden');
+  }
+
+  // Format error message
+  function formatError(error) {
+    if (typeof error === 'string') return error;
+    if (error.message) return error.message;
+    return 'An unknown error occurred';
+  }
+
+  // Create a new project - client-side implementation
+  async function createProject(projectName) {
+    try {
+      document.getElementById('createProjectBtnText').classList.add('hidden');
+      document.getElementById('createProjectLoading').classList.remove('hidden');
+      
+      // Create new project locally
+      const newProject = {
+        id: 'project-' + Date.now(),  // Generate a unique ID
+        name: projectName.toUpperCase(),
+        forms: []
+      };
+      
+      // Add the new project to our local data
+      userData.projects.push(newProject);
+      
+      // Re-render the sidebar with the updated data
+      renderProjects(userData.projects);
+      populateProjectSelect(userData.projects);
+      
+      return newProject;
+    } catch (error) {
+      console.error('Failed to create project:', error);
+      throw error;
+    } finally {
+      document.getElementById('createProjectBtnText').classList.remove('hidden');
+      document.getElementById('createProjectLoading').classList.add('hidden');
+    }
+  }
+
+  // Create a new form - client-side implementation
+  async function createForm(formName, projectId) {
+    try {
+      document.getElementById('createFormBtnText').classList.add('hidden');
+      document.getElementById('createFormLoading').classList.remove('hidden');
+      
+      // Create new form locally
+      const newForm = {
+        id: 'form-' + Date.now(),  // Generate a unique ID
+        name: formName,
+        projectId: projectId,
+        createdAt: new Date().toISOString(),
+        submissions: 0
+      };
+      
+      // Find the project and add the form to it
+      const project = userData.projects.find(p => p.id === projectId);
+      if (project) {
+        // Add the new form to the project
+        if (!project.forms) {
+          project.forms = [];
+        }
+        project.forms.push(newForm);
+        
+        // Re-render the sidebar with the updated data
+        renderProjects(userData.projects);
+      }
+      
+      return newForm;
+    } catch (error) {
+      console.error('Failed to create form:', error);
+      throw error;
+    } finally {
+      document.getElementById('createFormBtnText').classList.remove('hidden');
+      document.getElementById('createFormLoading').classList.add('hidden');
+    }
+  }
+
+  // Render projects and forms in sidebar
+  function renderProjects(projects) {
+    projectsContainer.innerHTML = '';
+    
+    if (!projects || projects.length === 0) {
+      projectsContainer.innerHTML = `
+        <div class="text-center text-gray-500 py-4">
+          No projects yet. Create your first project!
+        </div>
+      `;
+      return;
+    }
+    
+    projects.forEach(project => {
+      // Create project header
+      const projectHeader = document.createElement('div');
+      projectHeader.className = 'text-xs text-gray-500 font-semibold select-none mt-4';
+      projectHeader.textContent = project.name;
+      
+      // Create project container
+      const projectContainer = document.createElement('div');
+      projectContainer.id = `${project.id}-forms`;
+      projectContainer.className = 'space-y-2 pl-2';
+      
+      // Add forms to project
+      if (project.forms && project.forms.length > 0) {
+        project.forms.forEach(form => {
+          const formElement = createFormElement(form, project.id);
+          projectContainer.appendChild(formElement);
+        });
+      }
+      
+      // Create "New Form" button for this project
+      const newFormButton = document.createElement('div');
+      newFormButton.className = 'border border-dashed border-gray-300 rounded-md p-3 text-center text-gray-600 text-xs cursor-pointer select-none hover:bg-gray-50';
+      newFormButton.innerHTML = '<i class="fas fa-plus mr-1 text-red-600"></i> New Form';
+      
+      // Add event listener to the new "New Form" button
+      newFormButton.addEventListener('click', () => {
+        activeProjectId = project.id;
+        projectSelectContainer.style.display = 'none';
+        creatingFromProjectButton = true;
+        newFormModal.classList.remove('hidden');
+      });
+      
+      // Add "New Form" button to project container
+      projectContainer.appendChild(newFormButton);
+      
+      // Add project to sidebar
+      projectsContainer.appendChild(projectHeader);
+      projectsContainer.appendChild(projectContainer);
+    });
+  }
+
+  // Create a form element
+  function createFormElement(form, projectId) {
+    const formElement = document.createElement('div');
+    formElement.className = 'form-item bg-white rounded-md border border-gray-200 px-3 py-2 flex items-center justify-between hover:bg-gray-50 cursor-pointer';
+    formElement.innerHTML = `
+      <div class="flex items-center">
+        <i class="fas fa-file-alt mr-2 text-red-600"></i>
+        <span class="font-medium">${form.name}</span>
+      </div>
+      <div class="text-gray-400">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    `;
+    
+    // Add click event to show form details
+    formElement.addEventListener('click', () => {
+      showFormDetails(form, projectId);
+    });
+    
+    return formElement;
+  }
+
+  // Populate project select dropdown
+  function populateProjectSelect(projects) {
+    const projectSelect = document.getElementById('projectSelect');
+    projectSelect.innerHTML = '';
+    
+    if (projects && projects.length > 0) {
+      projects.forEach(project => {
+        const option = document.createElement('option');
+        option.value = project.id;
+        option.textContent = project.name;
+        projectSelect.appendChild(option);
+      });
+    }
+  }
+
+  // Show form details in main section
+  function showFormDetails(form, projectId) {
+    try {
+      // Hide welcome screen and show form details
+      welcomeScreen.classList.add('hidden');
+      formDetailsView.classList.remove('hidden');
+      
+      // Update form details
+      document.getElementById('formDetailTitle').textContent = form.name;
+      
+      // Generate HTML code for the form
+      const formId = form.id;
+      document.getElementById('formCode').textContent = 
+        `<form action="https://api.formsubmit.io/send/${formId}" method="POST">
+  <input type="text" name="name" placeholder="Your name">
+  <input type="email" name="email" placeholder="Your email">
+  <textarea name="message" placeholder="Your message"></textarea>
+  <input type="submit" value="Submit">
+</form>`;
+    } catch (error) {
+      console.error('Failed to load form details:', error);
+      alert(`Error loading form details: ${formatError(error)}`);
+    }
+  }
+
+  // Load user data initially
+  function loadUserData() {
+    try {
+      showLoading();
+      // Just use our local data
+      renderProjects(userData.projects);
+      populateProjectSelect(userData.projects);
+    } catch (error) {
+      console.error('Failed to load user data:', error);
+      alert(`Error loading data: ${formatError(error)}`);
+    } finally {
+      hideLoading();
+    }
+  }
+
+  // Dropdown toggle for "Add New" button
+  newButton.addEventListener('click', () => {
+    newDropdown.classList.toggle('hidden');
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!newButton.contains(event.target) && !newDropdown.contains(event.target)) {
+      newDropdown.classList.add('hidden');
+    }
+  });
+  
+  // Open form modal from dropdown
+  newFormBtn.addEventListener('click', () => {
+    newDropdown.classList.add('hidden');
+    projectSelectContainer.style.display = 'block';
+    creatingFromProjectButton = false;
+    newFormModal.classList.remove('hidden');
+  });
+  
+  // Open project modal
+  newProjectBtn.addEventListener('click', () => {
+    newDropdown.classList.add('hidden');
+    newProjectModal.classList.remove('hidden');
+  });
+  
+  // Close modals
+  modalCloseButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      newFormModal.classList.add('hidden');
+      newProjectModal.classList.add('hidden');
+    });
+  });
+  
+  // Handle form creation
+  document.getElementById('newFormForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formName = document.getElementById('formName').value;
+    if (!formName.trim()) {
+      alert('Please enter a form name');
+      return;
+    }
+    
+    let projectId;
+    
+    if (creatingFromProjectButton) {
+      projectId = activeProjectId;
+    } else {
+      projectId = document.getElementById('projectSelect').value;
+    }
+    
+    try {
+      await createForm(formName, projectId);
+      newFormModal.classList.add('hidden');
+      document.getElementById('formName').value = '';
+    } catch (error) {
+      alert(`Failed to create form: ${formatError(error)}`);
+    }
+  });
+  
+  // Handle project creation
+  document.getElementById('newProjectForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const projectName = document.getElementById('projectName').value;
+    if (!projectName.trim()) {
+      alert('Please enter a project name');
+      return;
+    }
+    
+    try {
+      await createProject(projectName);
+      newProjectModal.classList.add('hidden');
+      document.getElementById('projectName').value = '';
+    } catch (error) {
+      alert(`Failed to create project: ${formatError(error)}`);
+    }
+  });
+
+  // Load user data on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    loadUserData();
+  });
+</script>
+
  </body>
 </html>
