@@ -68,108 +68,93 @@
     </div>
     
     <!-- Form details view (hidden by default) -->
-    <div id="formDetailsView" class="hidden">
-
-
-        <main class="flex-1 overflow-y-auto p-6 bg-gray-50" style="scrollbar-width: thin; scrollbar-color: #d1d5db transparent">
-    <h1 class="text-xl font-bold mb-4 select-none">
-     A New Form
-    </h1>
+<div id="formDetailsView" class="hidden">
+  <main class="flex-1 overflow-y-auto p-6 bg-gray-50" style="scrollbar-width: thin; scrollbar-color: #d1d5db transparent">
+    <div class="flex items-center justify-between mb-6">
+      <h1 id="formDetailTitle" class="text-xl font-bold select-none">Form Title</h1>
+      <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md">
+        View Submissions
+      </button>
+    </div>
     <nav class="flex space-x-6 text-sm font-medium mb-6 select-none">
-     <button aria-current="page" class="border-b-2 border-red-600 pb-1 text-gray-900">
-      Integration
-     </button>
-     <button class="text-gray-500 hover:text-gray-700">
-      Submissions
-     </button>
-     <button class="text-gray-500 hover:text-gray-700">
-      Settings
-     </button>
-     <button class="text-gray-500 hover:text-gray-700">
-      Workflow
-     </button>
-     <button class="text-gray-500 hover:text-gray-700">
-      Rules
-     </button>
+      <button aria-current="page" class="border-b-2 border-red-600 pb-1 text-gray-900">
+        Integration
+      </button>
+      <button class="text-gray-500 hover:text-gray-700">
+        Submissions
+      </button>
+      <button class="text-gray-500 hover:text-gray-700">
+        Settings
+      </button>
+      <button class="text-gray-500 hover:text-gray-700">
+        Workflow
+      </button>
+      <button class="text-gray-500 hover:text-gray-700">
+        Rules
+      </button>
     </nav>
     <section class="bg-white rounded-lg p-6 mb-6 border border-gray-100 max-w-4xl">
-     <h2 class="text-xs font-semibold text-gray-500 uppercase mb-3 select-none">
-      FORM ENDPOINT
-     </h2>
-     <div class="flex items-center space-x-4">
-      <input class="flex-1 bg-gray-100 text-gray-700 text-xs font-mono rounded-md py-2 px-3 border border-gray-200 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600" readonly="" type="text" value="https://formspree.io/f/mblokbqr"/>
-      <button class="border border-gray-900 text-gray-900 font-semibold text-sm rounded-md py-2 px-4 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-900" type="button">
-       Copy
-      </button>
-     </div>
-     <p class="text-xs text-gray-500 mt-3 max-w-xl leading-relaxed">
-      Place this URL in the form's
-      <code class="bg-gray-100 border border-gray-300 rounded px-1 text-xs font-mono">
-       action
-      </code>
-      attribute, set the method to
-      <code class="bg-gray-100 border border-gray-300 rounded px-1 text-xs font-mono">
-       POST
-      </code>
-      , and add a
-      <code class="bg-gray-100 border border-gray-300 rounded px-1 text-xs font-mono">
-       name
-      </code>
-      attribute to each input.
-     </p>
+      <h2 class="text-xs font-semibold text-gray-500 uppercase mb-3 select-none">
+        FORM ENDPOINT
+      </h2>
+      <div class="flex items-center space-x-4">
+        <input id="formEndpoint" class="flex-1 bg-gray-100 text-gray-700 text-xs font-mono rounded-md py-2 px-3 border border-gray-200 focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600" readonly="" type="text" value="https://formspree.io/f/mblokbqr"/>
+        <button id="copyEndpointBtn" class="border border-gray-900 text-gray-900 font-semibold text-sm rounded-md py-2 px-4 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-900" type="button">
+          Copy
+        </button>
+      </div>
+      <p class="text-xs text-gray-500 mt-3 max-w-xl leading-relaxed">
+        Place this URL in the form's
+        <code class="bg-gray-100 border border-gray-300 rounded px-1 text-xs font-mono">
+          action
+        </code>
+        attribute, set the method to
+        <code class="bg-gray-100 border border-gray-300 rounded px-1 text-xs font-mono">
+          POST
+        </code>
+        , and add a
+        <code class="bg-gray-100 border border-gray-300 rounded px-1 text-xs font-mono">
+          name
+        </code>
+        attribute to each input.
+      </p>
     </section>
     <section class="bg-white rounded-lg p-6 border border-gray-100 max-w-4xl">
-     <h2 class="text-xs font-semibold text-gray-500 uppercase mb-3 select-none">
-      CODE EXAMPLES
-     </h2>
-     <div class="bg-[#15232e] rounded-md p-4 overflow-x-auto text-white font-mono text-xs" style="min-width: 320px">
-      <nav class="flex space-x-4 mb-4 select-none">
-       <button aria-current="page" class="bg-[#1f2d3d] rounded-md px-3 py-1 font-semibold">
-        HTML
-       </button>
-       <button class="hover:underline">
-        AJAX
-       </button>
-       <button class="hover:underline">
-        React
-       </button>
-       <button class="hover:underline">
-        HTML with file uploads
-       </button>
-       <button class="hover:underline">
-        Formbutton
-       </button>
-      </nav>
-      <pre class="whitespace-pre-wrap">
-&lt;!-- modify this form HTML and place wherever you want your form --&gt;
+      <h2 class="text-xs font-semibold text-gray-500 uppercase mb-3 select-none">
+        CODE EXAMPLES
+      </h2>
+      <div class="bg-[#15232e] rounded-md p-4 overflow-x-auto text-white font-mono text-xs" style="min-width: 320px">
+        <nav class="flex space-x-4 mb-4 select-none">
+          <button aria-current="page" class="bg-[#1f2d3d] rounded-md px-3 py-1 font-semibold">
+            HTML
+          </button>
+          <button class="hover:underline">
+            AJAX
+          </button>
+          <button class="hover:underline">
+            React
+          </button>
+          <button class="hover:underline">
+            HTML with file uploads
+          </button>
+          <button class="hover:underline">
+            Formbutton
+          </button>
+        </nav>
+        <pre class="whitespace-pre-wrap"><code id="formCode">&lt;!-- modify this form HTML and place wherever you want your form --&gt;
 &lt;form
-  action="https://formspree.io/f/mblokbqr"
+  action="https://api.formsubmit.io/send/your-form-id"
   method="POST"
 &gt;
-  &lt;input type="email" name="email" /&gt;
-  &lt;button type="submit"&gt;Send&lt;/button&gt;
-&lt;/form&gt;
-          </pre>
-     </div>
-    </section>
-   </main>
-      <div class="bg-white rounded-md p-8 max-w-3xl mx-auto">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-xl font-bold text-gray-900" id="formDetailTitle">Form Title</h2>
-          <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md">
-            View Submissions
-          </button>
-        </div>
-        <div class="border rounded-md p-4 bg-gray-50">
-          <h3 class="font-medium mb-2">Embed this form in your HTML</h3>
-          <pre class="bg-gray-800 text-gray-100 p-3 rounded-md text-sm overflow-x-auto"><code id="formCode">&lt;form action="https://api.formsubmit.io/send/your-form-id" method="POST"&gt;
-  &lt;input type="text" name="name"&gt;
-  &lt;input type="email" name="email"&gt;
-  &lt;input type="submit"&gt;
+  &lt;input type="text" name="name" placeholder="Your name"&gt;
+  &lt;input type="email" name="email" placeholder="Your email"&gt;
+  &lt;textarea name="message" placeholder="Your message"&gt;&lt;/textarea&gt;
+  &lt;input type="submit" value="Submit"&gt;
 &lt;/form&gt;</code></pre>
-        </div>
       </div>
-    </div>
+    </section>
+  </main>
+</div>
    </section>
   </main>
 
@@ -472,29 +457,36 @@
   }
 
   // Show form details in main section
-  function showFormDetails(form, projectId) {
-    try {
-      // Hide welcome screen and show form details
-      welcomeScreen.classList.add('hidden');
-      formDetailsView.classList.remove('hidden');
-      
-      // Update form details
-      document.getElementById('formDetailTitle').textContent = form.name;
-      
-      // Generate HTML code for the form
-      const formId = form.id;
-      document.getElementById('formCode').textContent = 
-        `<form action="https://api.formsubmit.io/send/${formId}" method="POST">
+function showFormDetails(form, projectId) {
+  try {
+    // Hide welcome screen and show form details
+    welcomeScreen.classList.add('hidden');
+    formDetailsView.classList.remove('hidden');
+    
+    // Update form details
+    document.getElementById('formDetailTitle').textContent = form.name;
+    
+    // Update form endpoint
+    const formEndpoint = `https://api.formsubmit.io/send/${form.id}`;
+    document.getElementById('formEndpoint').value = formEndpoint;
+    
+    // Generate HTML code for the form
+    document.getElementById('formCode').textContent = 
+      `<!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="${formEndpoint}"
+  method="POST"
+>
   <input type="text" name="name" placeholder="Your name">
   <input type="email" name="email" placeholder="Your email">
   <textarea name="message" placeholder="Your message"></textarea>
   <input type="submit" value="Submit">
 </form>`;
-    } catch (error) {
-      console.error('Failed to load form details:', error);
-      alert(`Error loading form details: ${formatError(error)}`);
-    }
+  } catch (error) {
+    console.error('Failed to load form details:', error);
+    alert(`Error loading form details: ${formatError(error)}`);
   }
+}
 
   // Load user data initially
   function loadUserData() {
@@ -595,6 +587,22 @@
   document.addEventListener('DOMContentLoaded', () => {
     loadUserData();
   });
+
+  // Add copy endpoint functionality
+document.getElementById('copyEndpointBtn').addEventListener('click', () => {
+  const endpointInput = document.getElementById('formEndpoint');
+  endpointInput.select();
+  document.execCommand('copy');
+  
+  // Show feedback
+  const originalText = document.getElementById('copyEndpointBtn').textContent;
+  document.getElementById('copyEndpointBtn').textContent = 'Copied!';
+  
+  // Reset after short delay
+  setTimeout(() => {
+    document.getElementById('copyEndpointBtn').textContent = originalText;
+  }, 2000);
+});
 </script>
 
  </body>
